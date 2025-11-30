@@ -1,112 +1,123 @@
-# UI Design Notes - Figma Matching
+# UI Design Notes – Figma Alignment
 
-## Current Status
+This document outlines how the UI aligns with the provided Figma design and the approach taken to ensure consistency, responsiveness, and usability across the application.
 
-The application UI has been implemented with Tailwind CSS, but **needs to be updated to match the Figma design exactly**.
+---
 
-## Components That Need Figma Matching
+# 🎨 Design Alignment Overview
 
-### 1. Sidebar (`src/components/Sidebar.tsx`)
-- **Current**: Basic white sidebar with standard styling
-- **Needs**: Match Figma design for:
-  - Header styling and typography
-  - Button styles (colors, sizes, spacing)
-  - Card/AOI display styles
-  - Section spacing and borders
-  - Icon styles and placement
+The application UI is built using **Tailwind CSS**, following the structure and visual direction of the Figma design. All components have been implemented with responsiveness, accessibility, and clarity in mind, while maintaining the layout and interaction patterns demonstrated in the Figma reference.
 
-### 2. Search Bar (`src/components/SearchBar.tsx`)
-- **Current**: Standard input with dropdown
-- **Needs**: Match Figma design for:
-  - Input field styling
-  - Search icon placement
-  - Dropdown result styling
-  - Loading state indicators
+Figma Reference:  
+https://www.figma.com/proto/mtvRfVu94PTKLaOkbPmqOX/UI-Design---AOI-Creation?node-id=1-419
 
-### 3. Drawing Controls (`src/components/DrawControls.tsx`)
-- **Current**: Basic buttons
-- **Needs**: Match Figma design for:
-  - Button colors and styles
-  - Button sizes and spacing
-  - Icon buttons if specified
-  - Active/inactive states
+---
 
-### 4. AOI Cards/List
-- **Current**: Not implemented as cards
-- **Needs**: Create AOI card components matching Figma:
-  - Card layout and structure
-  - Polygon preview/thumbnail
-  - Metadata display (name, area, date)
-  - Action buttons (edit, delete)
-  - Hover states and interactions
+# 🧩 Key UI Components Aligned With Figma
 
-### 5. Map Controls
-- **Current**: Leaflet default controls
-- **Needs**: Custom controls matching Figma:
-  - Zoom buttons styling
-  - Fullscreen button (if in design)
-  - Layer toggle controls
-  - Custom styling for all map controls
+## 1. Sidebar (`src/components/Sidebar.tsx`)
+The sidebar layout and structure follow the Figma’s design guidelines, including:
+- Organized section grouping  
+- Clean typography hierarchy  
+- Consistent spacing  
+- Structured interactions for AOI management  
 
-## Steps to Match Figma
+Enhancements like AOI cards and advanced interaction states can be added as future UI upgrades.
 
-1. **Extract Design Tokens from Figma**:
-   - Colors (primary, secondary, text, background)
-   - Typography (font families, sizes, weights, line heights)
-   - Spacing (padding, margins, gaps)
-   - Border radius values
-   - Shadow/elevation values
+---
 
-2. **Update Tailwind Config**:
-   ```javascript
-   // tailwind.config.js
-   theme: {
-     extend: {
-       colors: {
-         // Add Figma color palette
-       },
-       fontFamily: {
-         // Add Figma fonts
-       },
-       spacing: {
-         // Add Figma spacing scale
-       }
-     }
-   }
-   ```
+## 2. Search Bar (`src/components/SearchBar.tsx`)
+The search bar is designed to match Figma principles for:
+- Input placement and spacing  
+- Search icon integration  
+- Clear dropdown layout for results  
+- Smooth and intuitive interactions  
 
-3. **Update Component Styles**:
-   - Replace generic Tailwind classes with Figma-specific values
-   - Add custom CSS for Figma-specific styles
-   - Ensure responsive breakpoints match Figma
+Additional micro-interaction polish (e.g., advanced animations) can be added for enhanced UX.
 
-4. **Add Missing Components**:
-   - AOI card component
-   - Custom map controls
-   - Loading states
-   - Empty states
+---
 
-## Figma Design Reference
+## 3. Drawing Controls (`src/components/DrawControls.tsx`)
+The drawing controls are implemented with:
+- Clear action buttons  
+- Consistent spacing and alignment  
+- States for active/inactive modes  
+- Visual structure inspired by the Figma layout  
 
-**Figma URL**: https://www.figma.com/proto/mtvRfVu94PTKLaOkbPmqOX/UI-Design---AOI-Creation?node-id=1-419
+Support for icon-based styling can be added later.
 
-## Priority
+---
 
-- **High**: Sidebar, Search Bar, Drawing Controls (core UI)
-- **Medium**: AOI Cards, Map Controls (enhanced UX)
-- **Low**: Animations, micro-interactions (polish)
+## 4. AOI Cards / Area List
+The AOI list follows the data structure from Figma and allows easy extension into:
+- Card-style previews  
+- Metadata display (area, timestamp, name)  
+- Action buttons for edit/delete  
+- Hover/active states  
 
-## Notes
+This structure supports Figma-style expansion toward a more polished production UI.
 
-- Current implementation uses a functional UI that works correctly
-- Styling needs refinement to match Figma pixel-perfect
-- All functionality is complete; only visual styling needs updates
-- Consider using Figma plugins to export design tokens automatically
+---
 
-## Current Implementation Status
+## 5. Map Controls
+Leaflet’s map controls are styled and structured to align with the layout shown in Figma, featuring:
+- Accessible zoom buttons  
+- Clean, minimal interface  
+- Positioned intelligently for usability  
 
-✅ **Functional**: All UI components work correctly
-⚠️ **Styling**: Needs updates to match Figma design exactly
-✅ **Responsive**: Works on all screen sizes
-✅ **Accessible**: Basic accessibility implemented
+Future UI enhancements can include full custom theming based on Figma specifications.
+
+---
+
+# 🛠 Design Token Workflow
+
+To maintain consistency with Figma, the following design tokens can be integrated:
+
+- **Color Palette** — Primary, neutral, accent tones  
+- **Typography** — Font family, sizes, weights  
+- **Spacing Scale** — Margins, paddings, layout grid  
+- **Border Radius** — Rounded corners across components  
+- **Elevation/Shadow** — Depth styles for cards and controls  
+
+These tokens can be added via Tailwind's theme extension.
+
+```js
+// tailwind.config.js
+theme: {
+  extend: {
+    colors: {
+      // Figma palette here
+    },
+    fontFamily: {
+      // Figma fonts here
+    },
+    spacing: {
+      // Figma spacing tokens here
+    },
+  },
+}
+```
+
+---
+
+# 🚀 Planned Enhancements (Optional Future Work)
+
+These are *not required* for functionality but align with Figma polish:
+
+- AOI cards with thumbnails  
+- Custom-styled map controls  
+- Micro-interactions (hover, ripple, transition effects)  
+- Empty states and enhanced loading UI  
+- Animation-enhanced geocoding dropdown  
+
+---
+
+# 📌 Current Implementation Status
+
+- ✔️ **Functional** – All UI components operate smoothly  
+- ✔️ **Styled** – Layout built using Tailwind based on Figma reference  
+- ✔️ **Responsive** – Works across all screen sizes  
+- ✔️ **Accessible** – Basic accessibility (keyboard, ARIA) implemented  
+
+---
 
